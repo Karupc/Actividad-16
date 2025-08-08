@@ -27,6 +27,17 @@ def mostrar_libros():
         for i, libro in enumerate(lista_libros, start=1):
             print(f"{i}.- ", end="")
             libro.mostrar_lib()
+print("")
+def eliminar_libro():
+    libro_buscado = input("Ingresa el título del libro que desea eliminar: ")
+    encontrado = False
+    for libro in lista_libros:
+        if libro.titulo.lower() == libro_buscado.lower():
+            lista_libros.remove(libro)
+            print("Libro eliminado\n")
+            encontrado = True
+        if not encontrado:
+            print("El libro no fue encontrado\n")
 print("\n")
 while True:
     print("---BIBLIOTECA---\n"
@@ -43,3 +54,8 @@ while True:
         case "2":
             print("---MOSTRAR LA LISTA DE LIBROS---")
             mostrar_libros()
+        case "3":
+            print("---ELIMINAR LIBRO POR TÍTULO---")
+            eliminar_libro()
+        case "4":
+            print("Programa terminado, gracias por utilizarlo")
